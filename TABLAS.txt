@@ -1,0 +1,42 @@
+CREATE TABLE clientes(
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    nombres VARCHAR(100),
+    apellidos VARCHAR(100),
+    dni VARCHAR(8),
+    celular VARCHAR(9)
+);
+
+CREATE TABLE alquiler (
+  codigo INT NOT NULL AUTO_INCREMENT,
+  alquiler VARCHAR(100) DEFAULT NULL,
+  fecha_alquiler DATE,
+  fecha_devolucion DATE,
+  id_clientes INT NOT NULL,
+  PRIMARY KEY (codigo),
+  KEY fk_alquiler_1_idx (id_clientes),
+  CONSTRAINT fk_alquiler_1 FOREIGN KEY (id_clientes) REFERENCES clientes (id)
+); 
+
+CREATE TABLE libros (
+    id_libro INT AUTO_INCREMENT PRIMARY KEY,
+    nombre VARCHAR(200),
+    autor VARCHAR(100),
+    editorial VARCHAR(50),
+    estado VARCHAR(5)
+);
+
+INSERT INTO libros VALUES(01, 'Dos leones', 'Franks', 'Meganize', 'D');
+INSERT INTO libros VALUES(02, 'El cura sin cabeza', 'Santiago C.', 'Caja negra', 'A');
+INSERT INTO libros VALUES(03, 'Adiós', 'Maya B.', 'Ambar', 'D');
+INSERT INTO libros VALUES(04, 'Traumas', 'Leonardo L.', 'Futura', 'A');
+INSERT INTO libros VALUES(05, 'Gallinazos sin plumas', 'Julio R. R.', 'Macro', 'A');
+INSERT INTO libros VALUES(06, 'Los hijos del Sol', 'Abraham V.', 'Maria Trinidad', 'A');
+INSERT INTO libros VALUES(07, 'Hipocampo de oro', 'Abraham V.', 'Peso Pluma', 'D');
+INSERT INTO libros VALUES(08, 'Sastre de la vida', 'Alicia M.', 'Animal de Invierno', 'D');
+INSERT INTO libros VALUES(09, 'Arrogante', 'Lily A.', 'Mirahadas', 'A');
+INSERT INTO libros VALUES(10, 'Aburrido', 'Pablo D.', 'Pre-textos', 'A');
+INSERT INTO libros VALUES(11, 'Odisea', 'Romero', 'Meganize', 'A');
+INSERT INTO libros VALUES(12, 'La Iliada', 'Romero', 'Meganize', 'A');
+INSERT INTO libros VALUES(13, 'Renán el Tucán', 'Miguel de C.', 'El País', 'D');
+INSERT INTO libros VALUES(14, 'Los Miserables', 'Victor H.', 'Mileno', 'A');
+INSERT INTO libros VALUES(15, 'Los Perros Hambrientos', 'Ciro A.', 'Meganize', 'D');
